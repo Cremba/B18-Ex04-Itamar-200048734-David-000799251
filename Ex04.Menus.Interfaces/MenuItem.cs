@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ex04.Menus.Interface
+namespace Ex04.Menus.Interfaces
 {
-    public interface MenuItem
+    public abstract class MenuItem
     {
-        //private string m_ItemLabel;
-        //private int m_ItemCode;
+        private string m_ItemLabel;
 
-        //public MenuItem(string i_ItemLabel, int i_ItemCode)
-        //{
-        //    m_ItemLabel = i_ItemLabel;
-        //    m_ItemCode = i_ItemCode;
-        //}
+        public MenuItem(string i_ItemLabel)
+        {
+            ItemLabel = i_ItemLabel;
+        }
+
+        public string ItemLabel { get => m_ItemLabel; set => m_ItemLabel = value; }
+
+        public abstract void ToShow();
     }
 }

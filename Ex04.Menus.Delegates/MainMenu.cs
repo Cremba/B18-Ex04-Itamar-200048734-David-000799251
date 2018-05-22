@@ -5,10 +5,10 @@ namespace Ex04.Menus.Delegates
 {
     public class MainMenu : Delegates
     {
-        private int m_Level;
+        private static int m_Level = 0;
         public string Title { get => Label ; set => Label = value; }
         private List<Delegates> m_ListOfMainMenu = new List<Delegates>();
-        private int m_index;
+        private int m_index = 1;
 
         public MainMenu(string i_Title, int i_Level)
         {
@@ -41,6 +41,18 @@ namespace Ex04.Menus.Delegates
                 {
                     Console.WriteLine("Input needs to be a number ");
                 }
+                else if (choiceFromUserAsNumber == 0)
+                {
+                    if(m_Level == 1)
+                    {
+                        exit();
+                    }
+                    else
+                    {
+
+                        Console.WriteLine("You went back");
+                    }
+                }
                 else if( choiceFromUserAsNumber < 1 || choiceFromUserAsNumber > m_ListOfMainMenu.Count)
                 {
                     Console.WriteLine("Value needs to be between 1 and {0}", m_ListOfMainMenu.Count + 1);
@@ -60,14 +72,14 @@ namespace Ex04.Menus.Delegates
             {
                 printMenu();
                 int choice = getNumberFromUser();
-                if (choice == m_ListOfMainMenu.Count)
+                if (choice == 0)
                 {
                     inputIsRight = false;
                     exit();
                 }
                 else
                 {
-                    m_ListOfMainMenu[choice].Show();
+                    m_ListOfMainMenu[choice - 1].Show();
                 }
             }
         }
@@ -81,18 +93,23 @@ namespace Ex04.Menus.Delegates
 
         private void printMenu()
         {
-            if(m_Level == 0)
+            if(m_Level == 1)
             {
                 Console.WriteLine("{0} :",Title);
             }
             else
             {
-                Console.WriteLine("{0}. {1}", m_index, Title);
+                Console.WriteLine("{0}. {1}", m_Level, Title);
             }
-            foreach(Delegates item in m_ListOfMainMenu)
+
+            m_index = 1;
+
+            foreach (Delegates item in m_ListOfMainMenu)
             {
-                Console.WriteLine("{0}. {1}", m_Level, item.Label );
+                Console.WriteLine("{0}. {1}", m_index, item.Label );
+                m_index++;
             }
+            Console.WriteLine("0. Back");
         }
     }
 }

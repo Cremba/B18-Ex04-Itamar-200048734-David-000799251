@@ -7,7 +7,7 @@ namespace Ex04.Test
     {
         internal static void build()
         {
-            MainMenu mainMenu = new MainMenu("Delegate Main menu", 0);
+            MainMenu mainMenu = new MainMenu("Delegate Main menu", 1);
             MainMenu menuOfTimeAndDay = mainMenu.newLevelMenu("Show Date/Time");
             menuOfTimeAndDay.NewItem("Show Time").ToShow += new Time().Show;
             menuOfTimeAndDay.NewItem("Show Date").ToShow += new Date().Show;
