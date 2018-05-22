@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ex04.Menus.Interface
 {
-    public class MenuItem
+    public interface MenuItem
     {
         private string m_ItemLabel;
         private int m_ItemCode;
