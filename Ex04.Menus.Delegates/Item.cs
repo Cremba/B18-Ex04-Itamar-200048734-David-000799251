@@ -4,24 +4,21 @@ using System.Text;
 
 namespace Ex04.Menus.Delegates
 {
-    public class Item : IDelegates
+    public class Item : Delegates 
     {
-        private string m_ItemLabel;
-
-        public Item(string i_ItemLabel)
+         public Item(string i_ItemLabel)
         {
-            m_ItemLabel = i_ItemLabel;
+            Label = i_ItemLabel;
+            
         }
 
         public delegate void MenuDelegate();
 
-        public event MenuDelegate Show;
-        
-        
-        
-        //add delegate handler
+        public event MenuDelegate ToShow;
 
-
-        
+        public override void Show()
+        {
+            ToShow?.Invoke();
+        }
     }
 }
