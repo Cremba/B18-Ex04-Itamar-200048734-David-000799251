@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-    public class MenuItem
+    public abstract class MenuObject
     {
         private string m_Title;
         private MainMenu m_Parent;
 
-        public MenuItem(string i_Title, MainMenu i_Parent)
+        public MenuObject(string i_Title, MainMenu i_Parent)
         {
             Title = i_Title;
             Parent = i_Parent;

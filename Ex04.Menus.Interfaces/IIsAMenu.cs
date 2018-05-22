@@ -4,12 +4,11 @@ using System.Text;
 
 namespace Ex04.Menus.Interface
 {
-    //internal interface IIsAMenu
-    //{
-    //    public static void Show();
+    internal interface IMenuObject
+    {
 
-    //    public MenuItem AddMenuItem(string i_ItemLabel);
+
 
         
-    //}
+    }
 }
