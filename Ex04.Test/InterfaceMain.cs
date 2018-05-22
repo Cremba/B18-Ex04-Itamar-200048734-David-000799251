@@ -7,11 +7,14 @@ namespace Ex04.Test
     {
         internal static void build()
         {
-            //MainMenu firstMainMenu = new MainMenu("Main Menu");
-            //MainMenu dateAndTimeMenu = firstMainMenu.add("Show Data/Time");
-            //dateAndTimeMenu.add()
-
-
+            MainMenu firstMainMenu = new MainMenu("Main Menu", 0, null);
+            MainMenu dateAndTimeMenu = firstMainMenu.addNewMenu("Show Data/Time", 1);
+            dateAndTimeMenu.addNewItemToMenu("Show Time", firstMainMenu, new Time());
+            dateAndTimeMenu.addNewItemToMenu("Show Date", firstMainMenu, new Date());
+            MainMenu versionAndCapitalMenu = firstMainMenu.addNewMenu("Version and Capitals", 1);
+            versionAndCapitalMenu.addNewItemToMenu("Count Capitals", versionAndCapitalMenu, new CountCapital());
+            versionAndCapitalMenu.addNewItemToMenu("Display Version", versionAndCapitalMenu, new DisplayVersion());
+            firstMainMenu.ToShow();
         }
     }
 }

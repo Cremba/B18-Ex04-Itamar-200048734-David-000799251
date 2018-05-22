@@ -114,11 +114,18 @@ namespace Ex04.Menus.Delegates
 
             foreach (Delegates item in m_ListOfMainMenu)
             {
-                Console.WriteLine("{0}. {1}", m_index, item.Label );
+                Console.WriteLine("{0}. {1}", m_index, item.Label);
                 m_index++;
             }
 
-            Console.WriteLine("0. Back");
+            if (m_Level == 0)
+            {
+                Console.WriteLine("0. Exit");
+            }
+            else
+            {
+                Console.WriteLine("0. Back");
+            }
         }
     }
 }

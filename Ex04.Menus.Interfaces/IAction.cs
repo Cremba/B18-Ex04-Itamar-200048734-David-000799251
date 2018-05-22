@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ex04.Menus.Interface
+namespace Ex04.Menus.Interfaces
 {
-    internal interface IMenuObject
+    public interface IAction
     {
-
-
-
-        
+        IAction Run();
     }
 }
