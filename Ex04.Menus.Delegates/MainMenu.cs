@@ -5,21 +5,24 @@ namespace Ex04.Menus.Delegates
 {
     public class MainMenu : Delegates
     {
-        private static int m_Level = 0;
+        private int m_Level = 0;
         public string Title { get => Label ; set => Label = value; }
         private List<Delegates> m_ListOfMainMenu = new List<Delegates>();
         private int m_index = 1;
+        private MainMenu parent;
 
         public MainMenu(string i_Title, int i_Level)
         {
             Title = i_Title;
             m_Level = i_Level;
+            parent = null;
         }
 
-        public MainMenu newLevelMenu(string i_Title)
+        public MainMenu newLevelMenu(string i_Title, int i_Level)
         {
-            MainMenu mainMenu = new MainMenu(i_Title, m_Level++);
+            MainMenu mainMenu = new MainMenu(i_Title, i_Level);
             m_ListOfMainMenu.Add(mainMenu);
+            mainMenu.parent = this;
             return mainMenu;
         }
 
@@ -43,14 +46,13 @@ namespace Ex04.Menus.Delegates
                 }
                 else if (choiceFromUserAsNumber == 0)
                 {
-                    if(m_Level == 1)
+                    if(m_Level == 0)
                     {
                         exit();
                     }
                     else
                     {
-
-                        Console.WriteLine("You went back");
+                        parent.Show();
                     }
                 }
                 else if( choiceFromUserAsNumber < 1 || choiceFromUserAsNumber > m_ListOfMainMenu.Count)
@@ -93,7 +95,7 @@ namespace Ex04.Menus.Delegates
 
         private void printMenu()
         {
-            if(m_Level == 1)
+            if(m_Level == 0)
             {
                 Console.WriteLine("{0} :",Title);
             }
