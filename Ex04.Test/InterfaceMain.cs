@@ -1,4 +1,5 @@
 ﻿using System;
+using Ex04.Menus.Interfaces;
 
 namespace Ex04.Test
 {
@@ -6,7 +7,11 @@ namespace Ex04.Test
     {
         internal static void build()
         {
-            throw new NotImplementedException();
+            //MainMenu firstMainMenu = new MainMenu("Main Menu");
+            //MainMenu dateAndTimeMenu = firstMainMenu.add("Show Data/Time");
+            //dateAndTimeMenu.add()
+
+
         }
     }
 }

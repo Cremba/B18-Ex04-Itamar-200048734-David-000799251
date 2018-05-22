@@ -11,6 +11,5 @@ namespace Ex04.Menus.Delegates
         public string Label { get => m_label; set => m_label = value; }
 
         public abstract void Show();
-        
     }
 }

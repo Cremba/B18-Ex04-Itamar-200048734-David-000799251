@@ -9,7 +9,6 @@ namespace Ex04.Menus.Delegates
          public Item(string i_ItemLabel)
         {
             Label = i_ItemLabel;
-            
         }
 
         public delegate void MenuDelegate();

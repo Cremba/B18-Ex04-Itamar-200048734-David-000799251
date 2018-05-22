@@ -19,44 +19,4 @@ namespace Ex04.Test
             Console.ReadLine();
         }
     }
-    class DisplayVersion
-    {
-        public void Show()
-        {
-            Console.WriteLine("App Version: 18.2.4.0");
-        }
-    }
-    class Time 
-    {
-        public void Show()
-        {
-            Console.WriteLine("The time is {0}", DateTime.Now.TimeOfDay);
-        }
-    }
-
-    class Date 
-    {
-        public void Show()
-        {
-            Console.WriteLine("The date of today is {0}", DateTime.Now.Date);
-        }
-    }
-    class CountCapital
-    {
-        public void Show()
-        {
-            int count = 0;
-            Console.WriteLine("Please insert a text");
-            string inputFromUser = Console.ReadLine();
-            foreach (char letter in inputFromUser)
-            {
-                if (char.IsUpper(letter))
-                {
-                    count++;
-                }
-            }
-
-            Console.WriteLine("There is a total of {0} capital letters", count);
-        }
-    }
 }

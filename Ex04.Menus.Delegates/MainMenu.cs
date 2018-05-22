@@ -6,7 +6,6 @@ namespace Ex04.Menus.Delegates
     public class MainMenu : Delegates
     {
         private int m_Level = 0;
-        public string Title { get => Label ; set => Label = value; }
         private List<Delegates> m_ListOfMainMenu = new List<Delegates>();
         private int m_index = 1;
         private MainMenu parent;
@@ -16,6 +15,12 @@ namespace Ex04.Menus.Delegates
             Title = i_Title;
             m_Level = i_Level;
             parent = null;
+        }
+
+        public string Title
+        {
+            get => Label;
+            set => Label = value;
         }
 
         public MainMenu newLevelMenu(string i_Title, int i_Level)
@@ -40,13 +45,13 @@ namespace Ex04.Menus.Delegates
             while (!inputIsValid)
             {
                 string inputFromUserAsString = Console.ReadLine();
-                if(!int.TryParse(inputFromUserAsString, out choiceFromUserAsNumber))
+                if (!int.TryParse(inputFromUserAsString, out choiceFromUserAsNumber))
                 {
                     Console.WriteLine("Input needs to be a number ");
                 }
                 else if (choiceFromUserAsNumber == 0)
                 {
-                    if(m_Level == 0)
+                    if (m_Level == 0)
                     {
                         exit();
                     }
@@ -55,7 +60,7 @@ namespace Ex04.Menus.Delegates
                         parent.Show();
                     }
                 }
-                else if( choiceFromUserAsNumber < 1 || choiceFromUserAsNumber > m_ListOfMainMenu.Count)
+                else if (choiceFromUserAsNumber < 1 || choiceFromUserAsNumber > m_ListOfMainMenu.Count)
                 {
                     Console.WriteLine("Value needs to be between 1 and {0}", m_ListOfMainMenu.Count + 1);
                 }
@@ -64,6 +69,7 @@ namespace Ex04.Menus.Delegates
                     inputIsValid = true;
                 }
             }
+
             return choiceFromUserAsNumber;
         }
 
@@ -95,9 +101,9 @@ namespace Ex04.Menus.Delegates
 
         private void printMenu()
         {
-            if(m_Level == 0)
+            if (m_Level == 0)
             {
-                Console.WriteLine("{0} :",Title);
+                Console.WriteLine("{0} :", Title);
             }
             else
             {
@@ -111,6 +117,7 @@ namespace Ex04.Menus.Delegates
                 Console.WriteLine("{0}. {1}", m_index, item.Label );
                 m_index++;
             }
+
             Console.WriteLine("0. Back");
         }
     }
