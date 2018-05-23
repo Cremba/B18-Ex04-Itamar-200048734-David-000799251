@@ -5,7 +5,6 @@ namespace Ex04.Menus.Delegates
 {
     public class MainMenu : Delegates
     {
-        public static int s_GlobalIndex = 1;
         private int m_Level = 0;
         private List<Delegates> m_ListOfMainMenu = new List<Delegates>();
         private MainMenu parent;
@@ -23,20 +22,17 @@ namespace Ex04.Menus.Delegates
         }
         public MainMenu newLevelMenu(string i_Title, int i_Level)
         {
-
             MainMenu mainMenu = new MainMenu(i_Title, i_Level);
             m_ListOfMainMenu.Add(mainMenu);
             mainMenu.parent = this;
             return mainMenu;
         }
-
         public Item NewItem(string i_ItemLabel)
         {
             Item item = new Item(i_ItemLabel);
             m_ListOfMainMenu.Add(item);
             return item;
         }
-
         private int getNumberFromUser()
         {
             int choiceFromUserAsNumber = 0;
@@ -90,17 +86,14 @@ namespace Ex04.Menus.Delegates
                 }
             }
         }
-
         private void exit()
         {
             Console.WriteLine("Thank you, have a good day");
             Console.ReadLine();
             Environment.Exit(200);
         }
-
         private void printMenu()
         {
-
             Console.Clear();
 
             if (m_Level == 0)
