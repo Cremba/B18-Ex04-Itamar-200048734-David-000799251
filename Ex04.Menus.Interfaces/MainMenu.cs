@@ -33,9 +33,8 @@ namespace Ex04.Menus.Interfaces
 
         public void addNewItemToMenu(string i_Title, MainMenu i_Parent, IAction i_Action)
         {
-            Runnable menuItem = new Runnable(i_Title, i_Action);
+            Runnable menuItem = new Runnable(i_Title, i_Parent, i_Action);
             m_ListOfMenuItems.Add(menuItem);
-            this.parent = i_Parent;
         }
 
         public void ToShow()
@@ -77,6 +76,7 @@ namespace Ex04.Menus.Interfaces
                     }
                     else
                     {
+                        s_GlobalIndex = 1;
                         parent.ToShow();
                     }
                 }
