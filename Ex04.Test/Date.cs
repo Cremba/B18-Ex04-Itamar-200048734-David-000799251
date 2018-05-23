@@ -15,6 +15,7 @@ namespace Ex04.Test
         public void Show()
         {
             Console.WriteLine("The date of today is {0}", DateTime.Now.Date);
+            Console.ReadLine();
         }
 
         IAction IAction.Run()

@@ -15,6 +15,7 @@ namespace Ex04.Test
         public void Show()
         {
             Console.WriteLine("App Version: 18.2.4.0");
+            Console.ReadLine();
         }
 
         IAction IAction.Run()

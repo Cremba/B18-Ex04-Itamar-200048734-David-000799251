@@ -13,6 +13,7 @@ namespace Ex04.Test
         public void Show()
         {
             Console.WriteLine("The time is {0}", DateTime.Now.TimeOfDay);
+            Console.ReadLine();
         }
     }
 }

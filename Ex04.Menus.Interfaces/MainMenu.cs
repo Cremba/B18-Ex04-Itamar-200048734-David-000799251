@@ -5,8 +5,7 @@ namespace Ex04.Menus.Interfaces
 {
     public class MainMenu : IMenu
     {
-        private int m_Level = 0
-            ;
+        private int m_Level = 0;
         public string Title;
         private List<IMenu> m_ListOfMenuItems = new List<IMenu>();
         private MainMenu parent;
@@ -18,19 +17,20 @@ namespace Ex04.Menus.Interfaces
             parent = i_Parent;
         }
 
-        public MainMenu addNewMenu(string i_Title, int i_Level)
+        public MainMenu addNewMenu(string i_Title, int i_Level, MainMenu i_Parent)
         {
-            MainMenu mainMenu = new MainMenu(i_Title, i_Level, this);
-
+            MainMenu mainMenu = new MainMenu(i_Title, i_Level, i_Parent);
 
             m_ListOfMenuItems.Add(mainMenu);
+
             return mainMenu;
         }
 
-        public void addNewItemToMenu(string i_Title, MainMenu i_ParentMenu, IAction i_Action)
+        public void addNewItemToMenu(string i_Title, MainMenu i_Parent, IAction i_Action)
         {
             Runnable menuItem = new Runnable(i_Title, i_Action);
             m_ListOfMenuItems.Add(menuItem);
+            this.parent = i_Parent;
         }
 
         public void ToShow()
@@ -40,7 +40,7 @@ namespace Ex04.Menus.Interfaces
             while (inputIsRight)
             {
                 printMenu();
-                int choice = getNumberFromUser();
+                int choice = validateInputFromUser();
                 if (choice == 0)
                 {
                     inputIsRight = false;
@@ -60,7 +60,7 @@ namespace Ex04.Menus.Interfaces
             Environment.Exit(200);
         }
 
-        private int getNumberFromUser()
+        private int validateInputFromUser()
         {
             int choiceFromUserAsNumber = 0;
             bool inputIsValid = false;

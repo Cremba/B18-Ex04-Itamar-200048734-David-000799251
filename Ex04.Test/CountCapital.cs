@@ -26,6 +26,7 @@ namespace Ex04.Test
             }
 
             Console.WriteLine("There is a total of {0} capital letters", count);
+            Console.ReadLine();
         }
 
         IAction IAction.Run()
