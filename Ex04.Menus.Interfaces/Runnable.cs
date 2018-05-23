@@ -15,11 +15,6 @@ namespace Ex04.Menus.Interfaces
             Lable = i_Title;
         }
 
-        //public Runnable(string i_Lable, IAction action)
-        //{
-        //    toRun = action;
-        //    Lable = i_Lable;
-        //}
         public string Lable { get; set; }
 
         public new void ToShow()

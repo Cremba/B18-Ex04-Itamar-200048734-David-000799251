@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ex04.Test
 {
-    class UI
+    internal class UI
     {
         public void Run()
         {

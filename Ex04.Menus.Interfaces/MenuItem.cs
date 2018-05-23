@@ -13,15 +13,15 @@ namespace Ex04.Menus.Interfaces
         {
             Title = i_Title;
             Parent = i_Parent;
-
         }
 
         public string Title { get => m_Title; set => m_Title = value; }
+
         public MainMenu Parent { get => m_Parent; set => m_Parent = value; }
 
         public void ToShow()
         {
-            ((IMenu)Parent).ToShow();
+            ToShow();
         }
     }
 }

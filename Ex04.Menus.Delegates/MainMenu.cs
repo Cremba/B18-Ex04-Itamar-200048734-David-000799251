@@ -15,11 +15,13 @@ namespace Ex04.Menus.Delegates
             m_Level = i_Level;
             parent = null;
         }
+
         public string Title
         {
             get => Label;
             set => Label = value;
         }
+
         public MainMenu newLevelMenu(string i_Title, int i_Level)
         {
             MainMenu mainMenu = new MainMenu(i_Title, i_Level);
@@ -27,12 +29,14 @@ namespace Ex04.Menus.Delegates
             mainMenu.parent = this;
             return mainMenu;
         }
+
         public Item NewItem(string i_ItemLabel)
         {
             Item item = new Item(i_ItemLabel);
             m_ListOfMainMenu.Add(item);
             return item;
         }
+
         private int getNumberFromUser()
         {
             int choiceFromUserAsNumber = 0;
@@ -86,12 +90,14 @@ namespace Ex04.Menus.Delegates
                 }
             }
         }
+
         private void exit()
         {
             Console.WriteLine("Thank you, have a good day");
             Console.ReadLine();
             Environment.Exit(200);
         }
+
         private void printMenu()
         {
             Console.Clear();

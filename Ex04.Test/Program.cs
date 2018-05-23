@@ -2,12 +2,11 @@
 
 namespace Ex04.Test
 {
-    class Program
+    public class Program
     {
-        static void Main()
+        public static void Main()
         {
             new UI().Run();
-            
         }
     }
 }

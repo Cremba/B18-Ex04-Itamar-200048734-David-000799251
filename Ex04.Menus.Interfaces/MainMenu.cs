@@ -5,10 +5,12 @@ namespace Ex04.Menus.Interfaces
 {
     public class MainMenu : IMenu
     {
-        public static int s_GlobalIndex = 1;
-        private int m_Level = 0;
-        public string Title;
+        private static int s_GlobalIndex = 1;
+        private int m_Level = 1;
+        private string Title;
         private int m_Index = 0;
+        private bool isLevelOne = false;
+        private bool inputIsRight = true;
         private List<IMenu> m_ListOfMenuItems = new List<IMenu>();
         private MainMenu parent;
 
@@ -39,15 +41,25 @@ namespace Ex04.Menus.Interfaces
 
         public void ToShow()
         {
-            bool inputIsRight = true;
-
             while (inputIsRight)
             {
                 printMenu();
                 int choice = validateInputFromUser();
                 if (choice == 0)
                 {
-                    inputIsRight = false;
+                    if (isLevelOne)
+                    {
+                        Console.WriteLine("Bye bye");
+                        Console.ReadLine();
+                        inputIsRight = false;
+                        return;
+                    }
+                    else
+                    {
+                        inputIsRight = false;
+                        s_GlobalIndex = 1;
+                        parent.ToShow();
+                    }
                 }
                 else
                 {
@@ -67,22 +79,9 @@ namespace Ex04.Menus.Interfaces
                 {
                     Console.WriteLine("Input needs to be a number ");
                 }
-                else if (choiceFromUserAsNumber == 0)
+                else if (choiceFromUserAsNumber < 0 || choiceFromUserAsNumber > m_ListOfMenuItems.Count)
                 {
-                    if (m_Level == 0)
-                    {
-                        Console.WriteLine("Bye bye");
-                        break;
-                    }
-                    else
-                    {
-                        s_GlobalIndex = 1;
-                        parent.ToShow();
-                    }
-                }
-                else if (choiceFromUserAsNumber < 1 || choiceFromUserAsNumber > m_ListOfMenuItems.Count)
-                {
-                    Console.WriteLine("Value needs to be between 1 and {0}", m_ListOfMenuItems.Count + 1);
+                    Console.WriteLine("Value needs to be between 0 and {0}", m_ListOfMenuItems.Count);
                 }
                 else
                 {
@@ -116,10 +115,6 @@ namespace Ex04.Menus.Interfaces
                 {
                     Console.WriteLine("{0}. {1}", index, (item as MainMenu).Title);
                 }
-                else if (item is MenuItem)
-                {
-                    Console.WriteLine("{0}. {1}", index, (item as MenuItem).Title);
-                }
                 else if (item is Runnable)
                 {
                     Console.WriteLine("{0}. {1}", index, (item as Runnable).Lable);
@@ -136,6 +131,7 @@ namespace Ex04.Menus.Interfaces
             if (m_Level == 0)
             {
                 Console.WriteLine("0. Exit");
+                isLevelOne = true;
             }
             else
             {

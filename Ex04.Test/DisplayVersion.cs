@@ -5,7 +5,7 @@ using Ex04.Menus.Interfaces;
 
 namespace Ex04.Test
 {
-    partial class DisplayVersion : IAction
+    public class DisplayVersion : IAction
     {
         public void Run()
         {

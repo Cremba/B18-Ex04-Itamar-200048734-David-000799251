@@ -15,8 +15,6 @@ namespace Ex04.Test
             menuVersionAndCapitals.NewItem("Count Capitals").ToShow += new CountCapital().Show;
             menuVersionAndCapitals.NewItem("Display Version").ToShow += new DisplayVersion().Show;
             mainMenu.Show();
-            Console.WriteLine("Bye Bye");
-            Console.ReadLine();
         }
     }
 }
