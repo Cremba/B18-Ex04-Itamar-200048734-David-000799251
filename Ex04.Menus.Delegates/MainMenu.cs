@@ -5,9 +5,9 @@ namespace Ex04.Menus.Delegates
 {
     public class MainMenu : Delegates
     {
+        public static int s_GlobalIndex = 1;
         private int m_Level = 0;
         private List<Delegates> m_ListOfMainMenu = new List<Delegates>();
-        private int m_index = 1;
         private MainMenu parent;
 
         public MainMenu(string i_Title, int i_Level)
@@ -16,15 +16,14 @@ namespace Ex04.Menus.Delegates
             m_Level = i_Level;
             parent = null;
         }
-
         public string Title
         {
             get => Label;
             set => Label = value;
         }
-
         public MainMenu newLevelMenu(string i_Title, int i_Level)
         {
+
             MainMenu mainMenu = new MainMenu(i_Title, i_Level);
             m_ListOfMainMenu.Add(mainMenu);
             mainMenu.parent = this;
@@ -101,21 +100,27 @@ namespace Ex04.Menus.Delegates
 
         private void printMenu()
         {
+
+            Console.Clear();
+
             if (m_Level == 0)
             {
                 Console.WriteLine("{0} :", Title);
             }
             else
             {
-                Console.WriteLine("{0}. {1}", m_Level, Title);
+                Console.WriteLine("{0}. {1}", Index, Title);
             }
 
-            m_index = 1;
+            Console.WriteLine("==============");
+
+            int index = 1;
 
             foreach (Delegates item in m_ListOfMainMenu)
             {
-                Console.WriteLine("{0}. {1}", m_index, item.Label);
-                m_index++;
+                Console.WriteLine("{0}. {1}", index, item.Label);
+                item.Index = index;
+                index++;
             }
 
             if (m_Level == 0)
