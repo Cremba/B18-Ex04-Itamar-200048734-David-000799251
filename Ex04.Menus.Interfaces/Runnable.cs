@@ -4,18 +4,25 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-    class Runnable : IMenu
+    internal class Runnable : MenuItem, IMenu
     {
         private IAction toRun;
 
-        public Runnable(string i_Lable, IAction action)
+        public Runnable(string i_Title, MainMenu i_Parent, IAction action) : base(i_Title, i_Parent, action)
         {
             toRun = action;
-            Lable = i_Lable;
+            Parent = i_Parent;
+            Lable = i_Title;
         }
+
+        //public Runnable(string i_Lable, IAction action)
+        //{
+        //    toRun = action;
+        //    Lable = i_Lable;
+        //}
         public string Lable { get; set; }
 
-        public void ToShow()
+        public new void ToShow()
         {
             toRun.Run();
         }
