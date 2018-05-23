@@ -9,7 +9,7 @@ namespace Ex04.Test
         public void Run()
         {
             InterfaceMain.build();
-            //DelegateMain.build();
+            DelegateMain.build();
         }
     }
 }
