@@ -1,0 +1,10 @@
+==========================Exercise Checking Report==========================
+Exercise No...........: 3
+First Student Details.: 200048734 - Itamar Chuvali
+Second Student Details: 000799251 - David Brima
+Delivery Date.........: 18 - May -2018
+Delivered In Delay....: Yes - (1 Day)
+Delay Reason..........: We did not have enough time from Ex03
+Visual Studio Version.: 2017
+Comments..............: None
+=======================End Exercise Checking Report=========================
