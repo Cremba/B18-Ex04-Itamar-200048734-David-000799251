@@ -44,20 +44,13 @@ namespace Ex04.Menus.Interfaces
                 if (choice == 0)
                 {
                     inputIsRight = false;
-                    exit();
+
                 }
                 else
                 {
                     m_ListOfMenuItems[choice - 1].ToShow();
                 }
             }
-        }
-
-        private void exit()
-        {
-            Console.WriteLine("Thank you, have a good day");
-            Console.ReadLine();
-            Environment.Exit(200);
         }
 
         private int validateInputFromUser()
@@ -75,7 +68,8 @@ namespace Ex04.Menus.Interfaces
                 {
                     if (m_Level == 0)
                     {
-                        exit();
+                        Console.WriteLine("Bye bye");
+                        break;
                     }
                     else
                     {
