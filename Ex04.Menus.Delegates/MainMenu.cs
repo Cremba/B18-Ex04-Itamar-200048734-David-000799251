@@ -107,7 +107,7 @@ namespace Ex04.Menus.Delegates
             }
             else
             {
-                Console.WriteLine("{0}. {1}", m_Level, Title);
+                Console.WriteLine("{0}. {1}", m_index, Title);
             }
 
             m_index = 1;

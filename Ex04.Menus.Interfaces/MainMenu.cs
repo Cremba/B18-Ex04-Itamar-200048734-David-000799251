@@ -44,7 +44,6 @@ namespace Ex04.Menus.Interfaces
                 if (choice == 0)
                 {
                     inputIsRight = false;
-
                 }
                 else
                 {
