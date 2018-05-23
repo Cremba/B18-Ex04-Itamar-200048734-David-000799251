@@ -5,10 +5,14 @@ namespace Ex04.Menus.Interfaces
 {
     public class MainMenu : IMenu
     {
+        public static int s_GlobalIndex = 1;
         private int m_Level = 0;
         public string Title;
+        private int m_Index = 0;
         private List<IMenu> m_ListOfMenuItems = new List<IMenu>();
         private MainMenu parent;
+
+        public int Index { get => m_Index; set => m_Index = value; }
 
         public MainMenu(string i_Title, int i_Level, MainMenu i_Parent)
         {
@@ -20,7 +24,8 @@ namespace Ex04.Menus.Interfaces
         public MainMenu addNewMenu(string i_Title, int i_Level, MainMenu i_Parent)
         {
             MainMenu mainMenu = new MainMenu(i_Title, i_Level, i_Parent);
-
+            mainMenu.Index = s_GlobalIndex;
+            s_GlobalIndex++;
             m_ListOfMenuItems.Add(mainMenu);
 
             return mainMenu;
@@ -90,9 +95,20 @@ namespace Ex04.Menus.Interfaces
 
         private void printMenu()
         {
-            int index = 1;
             Console.Clear();
-            Console.WriteLine("{0} :", Title);
+
+            if (m_Level == 0)
+            {
+                Console.WriteLine("{0} :", Title);
+            }
+            else
+            {
+                Console.WriteLine("{0}. {1}", Index, Title);
+            }
+
+            Console.WriteLine("==============");
+
+            int index = 1;
 
             foreach (IMenu item in m_ListOfMenuItems)
             {
@@ -110,6 +126,11 @@ namespace Ex04.Menus.Interfaces
                 }
 
                 index++;
+
+                if (this.Index == 0)
+                {
+                    Index = index;
+                } 
             }
 
             if (m_Level == 0)
